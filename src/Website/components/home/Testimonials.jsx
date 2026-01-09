@@ -24,14 +24,14 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="py-20 bg-gradient-to-b from-[var(--bg)] to-white">
+    <section className="py-0 bg-gradient-to-b from-[var(--bg)] to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-[var(--primary-light)] text-[var(--primary)] font-semibold text-sm mb-6">
+          {/* <div className="inline-flex items-center px-4 py-2 rounded-full bg-[var(--primary-light)] text-[var(--primary)] font-semibold text-sm mb-6">
             <span className="mr-2">✨</span>
             Trusted by 5,000+ Restaurants
-          </div>
+          </div> */}
           
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--heading-color)] mb-6">
             Restaurants <span className="text-[var(--primary)]">Love</span> Partnering With Us

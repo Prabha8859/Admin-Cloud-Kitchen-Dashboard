@@ -8,8 +8,9 @@ import SignupPage from "../pages/auth/Signup";
 import Login from "../pages/auth/Login";
 import AboutUs from "../pages/AboutUs";
 import CompanyPage from "../pages/Partner";
-import ServicesPage from "../pages/ServicesPage";
+import ServicesPage from "../pages/ServicesPage .jsx";
 
+import "../components/style/webstyle.css";
 import "../Web-CSS/style.css";
 const WebRoutes = () => {
   return (

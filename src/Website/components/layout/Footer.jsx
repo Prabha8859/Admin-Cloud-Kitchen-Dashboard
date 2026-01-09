@@ -3,13 +3,10 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
+    <footer className="relative mt-0 overflow-hidden text-white bg-gradient-to-b from-[var(--secondary)] to-[var(--secondary-dark)]">
 
-
-
-    <footer className="relative mt-24 gradient-blue text-white overflow-hidden">
-
-      {/* 🌊 TOP CURVE */}
-      <div className="absolute top-0 left-0 w-full overflow-hidden leading-none">
+      {/* 🌊 TOP CURVE - Page background se match karta hai */}
+      <div className="absolute top-0 left-0 w-full overflow-hidden leading-none -translate-y-px">
         <svg
           viewBox="0 0 1440 90"
           preserveAspectRatio="none"
@@ -17,7 +14,7 @@ const Footer = () => {
         >
           <path
             d="M0,60 C240,100 480,20 720,30 960,40 1200,90 1440,50 L1440,0 L0,0 Z"
-            fill="var(--bg)"
+            fill="var(--bg)"  // Light page background
           />
         </svg>
       </div>
@@ -27,8 +24,8 @@ const Footer = () => {
 
         {/* BRAND */}
         <div>
-          <h2 className="text-2xl font-bold text-[var(--primary)]">
-            Padoshi Kitchen
+          <h2 className="text-3xl font-bold">
+            Padoshi <span className="text-[var(--primary)]">Kitchen</span>
           </h2>
           <p className="mt-4 text-sm text-white/70 leading-relaxed">
             Cloud Kitchen Services helping food brands launch, operate and grow
@@ -38,13 +35,13 @@ const Footer = () => {
 
         {/* COMPANY */}
         <div>
-          <h3 className="font-semibold mb-5 text-white">Company</h3>
-          <ul className="space-y-3 text-sm text-white/70">
+          <h3 className="font-semibold mb-5 text-white uppercase tracking-wider text-lg">Company</h3>
+          <ul className="space-y-3 text-sm">
             {["About", "Careers", "Contact"].map((item) => (
               <li key={item}>
                 <Link
-                  to="/about"
-                  className="hover:text-[var(--primary)] cursor-pointer transition"
+                  to={item === "About" ? "/about" : item === "Careers" ? "/careers" : "/contact"}
+                  className="text-white/70 hover:text-[var(--primary)] transition duration-300"
                 >
                   {item}
                 </Link>
@@ -55,8 +52,8 @@ const Footer = () => {
 
         {/* SERVICES */}
         <div>
-          <h3 className="font-semibold mb-5 text-white">Services</h3>
-          <ul className="space-y-3 text-sm text-white/70">
+          <h3 className="font-semibold mb-5 text-white uppercase tracking-wider text-lg">Services</h3>
+          <ul className="space-y-3 text-sm">
             {[
               "Cloud Kitchen Setup",
               "Operations",
@@ -64,8 +61,8 @@ const Footer = () => {
             ].map((item) => (
               <li key={item}>
                 <Link
-                  to="/service"
-                  className="hover:text-[var(--primary)] cursor-pointer transition"
+                  to="/services"
+                  className="text-white/70 hover:text-[var(--primary)] transition duration-300"
                 >
                   {item}
                 </Link>
@@ -76,13 +73,13 @@ const Footer = () => {
 
         {/* PARTNER */}
         <div>
-          <h3 className="font-semibold mb-5 text-white">Partner</h3>
-          <ul className="space-y-3 text-sm text-white/70">
+          <h3 className="font-semibold mb-5 text-white uppercase tracking-wider text-lg">Partner</h3>
+          <ul className="space-y-3 text-sm">
             {["Partner With Us", "FAQs", "Terms"].map((item) => (
               <li key={item}>
                 <Link
-                  to="/company"
-                  className="hover:text-[var(--primary)] cursor-pointer transition"
+                  to={item === "Partner With Us" ? "/partner" : item === "FAQs" ? "/faqs" : "/terms"}
+                  className="text-white/70 hover:text-[var(--primary)] transition duration-300"
                 >
                   {item}
                 </Link>
@@ -93,7 +90,7 @@ const Footer = () => {
       </div>
 
       {/* BOTTOM BAR */}
-      <div className="border-t border-white/10 py-5 text-center text-sm text-white/60">
+      <div className="border-t border-white/20 py-6 text-center text-sm text-white/60">
         © {new Date().getFullYear()} Padoshi Kitchen · Cloud Kitchen Services
       </div>
     </footer>

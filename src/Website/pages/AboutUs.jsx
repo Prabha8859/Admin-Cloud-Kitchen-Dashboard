@@ -1,4 +1,5 @@
 import React from "react";
+import Card from '../components/ui/Card';
 import image5 from '../../assets/images/Image 5.jpg';
 import services1 from '../../assets/images/services1.webp';
 import growth from '../../assets/images/Growth.webp';
@@ -77,24 +78,26 @@ const AboutUs = () => {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {services.map((service) => (
-              <div 
-                key={service.title} 
-                className="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl"
+              <Card
+                key={service.title}
+                variant="elevated"
+                className="overflow-hidden transition-all duration-300 hover:shadow-2xl"
+                padding="none"
               >
                 <div className="h-48 overflow-hidden">
-                  <img 
-                    src={service.image} 
-                    alt={service.title} 
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" 
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   />
                 </div>
                 <div className={`${service.gradient} py-8 px-6 text-center`}>
-                  <h3 className="text-2xl font-semibold text-white mb-4">{service.title}</h3>
-                  <p className="text-white/90 text-base leading-relaxed px-4">
+                  <Card.Title className="text-white mb-4">{service.title}</Card.Title>
+                  <Card.Description className="text-white/90 px-4">
                     {service.description}
-                  </p>
+                  </Card.Description>
                 </div>
-              </div>
+              </Card>
             ))}
           </div>
         </div>
@@ -103,18 +106,26 @@ const AboutUs = () => {
       {/* MISSION & VISION - Cards chhote aur clean */}
       <section className="bg-primary-light py-20">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10">
-          <div className="bg-white rounded-2xl shadow-lg p-10 text-center transition-shadow duration-300 hover:shadow-xl">
-            <h3 className="text-3xl font-semibold text-primary mb-5">Our Mission</h3>
-            <p className="text-text-dark text-lg leading-relaxed">
+          <Card
+            variant="default"
+            className="text-center transition-shadow duration-300 hover:shadow-xl"
+            padding="large"
+          >
+            <Card.Title className="text-primary mb-5">Our Mission</Card.Title>
+            <Card.Description>
               To empower every food entrepreneur with world-class cloud kitchen infrastructure, cutting-edge technology, and expert support — enabling them to scale rapidly while delivering exceptional food experiences to customers across India.
-            </p>
-          </div>
-          <div className="bg-white rounded-2xl shadow-lg p-10 text-center transition-shadow duration-300 hover:shadow-xl">
-            <h3 className="text-3xl font-semibold text-primary mb-5">Our Vision</h3>
-            <p className="text-text-dark text-lg leading-relaxed">
+            </Card.Description>
+          </Card>
+          <Card
+            variant="default"
+            className="text-center transition-shadow duration-300 hover:shadow-xl"
+            padding="large"
+          >
+            <Card.Title className="text-primary mb-5">Our Vision</Card.Title>
+            <Card.Description>
               To become the most trusted and innovative cloud kitchen platform in India, transforming how food brands operate, grow, and succeed in the digital-first food delivery era.
-            </p>
-          </div>
+            </Card.Description>
+          </Card>
         </div>
       </section>
 
