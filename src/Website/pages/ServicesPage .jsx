@@ -1,4 +1,8 @@
 import React from "react";
+import Card from "../components/ui/Card";
+import services1 from "../../assets/images/services1.webp";
+import Services3 from "../../assets/images/Services3.webp";
+import Services4 from "../../assets/images/Services4.webp";
 
 const ServicesPage = () => {
   const services = [
@@ -7,11 +11,11 @@ const ServicesPage = () => {
       description: "End-to-end setup of cloud kitchens with modern equipment, smart layouts, and operational efficiency to help your food brand launch faster.",
       gradientClass: "gradient-orange",
       icon: (
-        <svg className="w-14 h-14 mb-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-14 h-14 mb-6 text-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h-4m-6 0H5a2 2 0 002-2v-4" />
         </svg>
       ),
-      image: "https://www.restroworks.com/blog/wp-content/uploads/2024/08/cloud-kitchen-journey.webp", // Professional cloud kitchen setup
+      image: services1, // Professional cloud kitchen setup
     },
     {
       title: "Operations",
@@ -22,25 +26,25 @@ const ServicesPage = () => {
           <path strokeLinecap="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
         </svg>
       ),
-      image: "https://www.chitkara.edu.in/blogs/wp-content/uploads/2024/05/How-to-Become-a-Chef.jpg", // Professional staff/operations
+      image: Services3, // Professional staff/operations
     },
     {
       title: "Growth & Marketing",
       description: "Marketing strategies, online presence, and analytics to grow your brand, boost orders, and reach more customers.",
       gradientClass: "gradient-kitchen",
       icon: (
-        <svg className="w-14 h-14 mb-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-14 h-14 mb-6 text-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
         </svg>
       ),
-      image: "https://www.datumintell.in/content/images/size/w1304/format/webp/2023/06/Screenshot-2023-06-28-at-1.13.12-PM.png", // Growth analytics chart
+      image: Services4, // Growth analytics chart
     },
   ];
 
   return (
     <div className="bg-light text-dark min-h-screen">
       {/* HERO SECTION - No buttons + better image */}
-      <section className="relative h-screen flex items-center justify-center text-center text-white bg-cover bg-center" 
+      <section className="relative h-screen flex items-center justify-center text-center text-dark bg-cover bg-center"
         style={{ backgroundImage: "url('https://www.shutterstock.com/image-photo/wooden-countertop-foreground-blurred-modern-600nw-2631610587.jpg')" }}>
         <div className="absolute inset-0 bg-black/70"></div>
         <div className="relative z-10 max-w-7xl mx-auto px-6">
@@ -57,29 +61,26 @@ const ServicesPage = () => {
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-14 text-primary">Our Comprehensive Services</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {services.map((service) => (
-            <div 
-              key={service.title} 
-              className="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl"
-            >
+            <Card key={service.title} variant="default" hover={true} padding="none">
               <div className="h-48 overflow-hidden">
-                <img 
-                  src={service.image} 
-                  alt={service.title} 
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" 
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                 />
               </div>
               <div className={`${service.gradientClass} py-8 px-6 text-center`}>
                 {service.icon}
-                <h3 className="text-2xl font-semibold text-white mb-4">{service.title}</h3>
-                <p className="text-white/90 text-base leading-relaxed px-4">
+                <h3 className="text-2xl font-semibold text-dark mb-4">{service.title}</h3>
+                <p className="text-dark/90 text-base leading-relaxed px-4">
                   {service.description}
                 </p>
               </div>
-            </div>
+            </Card>
           ))}
         </div>
       </section>
-
+                          
       {/* WHY CHOOSE US - More balanced */}
       <section className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-6">
@@ -128,7 +129,7 @@ const ServicesPage = () => {
       </section>
 
       {/* FINAL CTA - No button */}
-      <section className="gradient-kitchen text-white py-28 text-center">
+      <section className="gradient-kitchen text-dark py-28 text-center">
         <div className="max-w-5xl mx-auto px-6">
           <h2 className="text-4xl md:text-5xl font-bold mb-8">Ready to Transform Your Food Business?</h2>
           <p className="text-xl md:text-2xl opacity-90">

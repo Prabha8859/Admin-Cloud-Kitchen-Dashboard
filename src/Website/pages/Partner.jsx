@@ -1,4 +1,5 @@
 import React from "react";
+import Card from '../components/ui/Card';
 import kitchenCloud from '../../assets/images/Kitchen Cloud.png';
 import services4 from '../../assets/images/Services4.webp';
 import services3 from '../../assets/images/Services3.webp';
@@ -35,9 +36,9 @@ const PartnerPage = () => {
   return (
     <div className="bg-light text-dark min-h-screen">
       {/* HERO SECTION - No button */}
-      <section className="relative h-screen flex items-center justify-center text-center text-white bg-cover bg-center"
+      <section className="relative h-screen flex items-center justify-center text-center text-dark bg-cover bg-center"
         style={{ backgroundImage: "url('https://thumbs.dreamstime.com/b/two-business-professionals-shake-hands-over-counter-filled-fresh-vegetables-spices-modern-restaurant-kitchen-400234166.jpg')" }}>
-        <div className="absolute inset-0 bg-black/70"></div>
+        <div className="absolute inset-0 bg-white/50"></div>
         <div className="relative z-10 max-w-7xl mx-auto px-6">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">Partner With Kitchen Cloud</h1>
           <p className="text-lg md:text-2xl max-w-4xl mx-auto opacity-95 leading-relaxed">
@@ -53,25 +54,27 @@ const PartnerPage = () => {
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-14 text-primary">Explore Partnership Opportunities</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {partnerLinks.map((link) => (
-            <div 
-              key={link.title} 
-              className="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl"
+            <Card
+              key={link.title}
+              variant="elevated"
+              className="overflow-hidden transition-all duration-300 hover:shadow-xl"
+              padding="none"
             >
               <div className="h-48 overflow-hidden">
-                <img 
-                  src={link.image} 
-                  alt={link.title} 
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" 
+                <img
+                  src={link.image}
+                  alt={link.title}
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                 />
               </div>
               <div className={`${link.gradient} py-8 px-6 text-center`}>
-                <h3 className="text-2xl font-semibold text-white mb-4">{link.title}</h3>
-                <p className="text-white/90 text-base leading-relaxed px-4">
+                <Card.Title className="text-dark mb-4">{link.title}</Card.Title>
+                <Card.Description className="text-dark/90 px-4">
                   {link.description}
-                </p>
+                </Card.Description>
                 {/* "Learn More" button removed */}
               </div>
-            </div>
+            </Card>
           ))}
         </div>
       </section>
@@ -85,22 +88,24 @@ const PartnerPage = () => {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             {benefits.map((benefit) => (
-              <div 
-                key={benefit.title} 
-                className="text-center bg-gray-50 rounded-2xl p-8 shadow-md hover:shadow-lg transition-shadow duration-300"
+              <Card
+                key={benefit.title}
+                variant="soft"
+                className="text-center transition-shadow duration-300 hover:shadow-lg"
+                padding="large"
               >
-                <h3 className="text-xl md:text-2xl font-semibold mb-3 text-dark">{benefit.title}</h3>
-                <p className="text-muted text-base md:text-lg leading-relaxed">
+                <Card.Title className="mb-3">{benefit.title}</Card.Title>
+                <Card.Description>
                   {benefit.desc}
-                </p>
-              </div>
+                </Card.Description>
+              </Card>
             ))}
           </div>
         </div>
       </section>
 
       {/* FINAL CTA - No buttons */}
-      <section className="gradient-kitchen text-white py-28 text-center">
+      <section className="gradient-kitchen text-dark py-28 text-center">
         <div className="max-w-5xl mx-auto px-6">
           <h2 className="text-4xl md:text-5xl font-bold mb-8">Ready to Scale Your Food Brand?</h2>
           <p className="text-xl md:text-2xl opacity-90">

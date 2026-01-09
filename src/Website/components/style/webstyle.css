@@ -1,0 +1,82 @@
+/* 🎨 KITCHEN CLOUD COLOR SYSTEM - BUTTONS KE LIYE OPTIMIZED */
+
+:root {
+    /* Primary Kitchen Colors (Orange) */
+    --primary: #FF6B35;
+    --primary-dark: #E55A2E;
+    --primary-light: #FFF5F2;
+    --primary-gradient-end: #FF8B4A;
+    /* Secondary/Cloud Colors (Teal-Blue) */
+    --secondary: #286f8d;
+    --secondary-dark: #1e5a74;
+    --secondary-light: #a3c4d1;
+    --secondary-gradient-end: #3a8ba8;
+    /* Neutral Colors */
+    --dark: #2D3436;
+    --gray: #636E72;
+    --light-gray: #DFE6E9;
+    --bg: #F8F9FA;
+    --white: #FFFFFF;
+    /* Text Colors */
+    --text-primary: var(--primary);
+    --text-dark: #1F1F1F;
+    --text-gray: #4B4B4B;
+    --text-muted: #9CA3AF;
+    --text-on-dark: #FFFFFF;
+    --text-on-primary: #FFFFFF;
+    --text-on-secondary: #FFFFFF;
+    /* Heading Color */
+    --heading-color: #2D3436;
+    /* Accent Colors */
+    --success: #00B894;
+    --success-dark: #009b7d;
+    --warning: #FDCB6E;
+    --danger: #E17055;
+    --danger-dark: #c95a42;
+    --info: #74B9FF;
+    /* 🌈 GRADIENTS (for future use if needed) */
+    --gradient-orange: linear-gradient(90deg, var(--primary), var(--primary-gradient-end));
+    --gradient-blue: linear-gradient(90deg, var(--secondary), var(--secondary-gradient-end));
+    --gradient-kitchen-hero: linear-gradient(135deg, var(--primary), var(--primary-gradient-end), var(--secondary));
+    /* 🔴 BUTTON COLORS - TAILWIND FRIENDLY & CONSISTENT */
+    /* Primary Button */
+    --btn-primary-bg: var(--primary);
+    --btn-primary-hover: var(--primary-dark);
+    --btn-primary-text: #FFFFFF;
+    /* Secondary Button */
+    --btn-secondary-bg: var(--secondary);
+    --btn-secondary-hover: var(--secondary-dark);
+    --btn-secondary-text: #FFFFFF;
+    /* Outline Button (Orange outline) */
+    --btn-outline-border: var(--primary);
+    --btn-outline-text: var(--primary);
+    --btn-outline-hover-bg: var(--primary);
+    --btn-outline-hover-text: #FFFFFF;
+    /* Success Button */
+    --btn-success-bg: var(--success);
+    --btn-success-hover: var(--success-dark);
+    --btn-success-text: #FFFFFF;
+    /* Danger Button */
+    --btn-danger-bg: var(--danger);
+    --btn-danger-hover: var(--danger-dark);
+    --btn-danger-text: #FFFFFF;
+    /* Ghost Button (Transparent with subtle hover) */
+    --btn-ghost-text: var(--text-dark);
+    --btn-ghost-hover-bg: rgba(40, 111, 141, 0.1);
+    /* Light teal hover */
+    --btn-ghost-border: transparent;
+    /* Aapka poora color system already hai, bas sidebar ke liye 2-3 extra variables add kar rahe hain */
+    /* Sidebar Background → Calm Teal-Blue (Cloud feel) */
+    --sidebar-bg-from: var(--secondary);
+    /* #286f8d */
+    --sidebar-bg-to: var(--secondary-dark);
+    /* #1e5a74 - thoda depth ke liye */
+    /* Accents, Active, Hover → Vibrant Orange (Kitchen warmth) */
+    --accent-from: var(--primary);
+    /* #FF6B35 */
+    --accent-to: var(--primary-gradient-end);
+    /* #FF8B4A */
+    /* Toggle button icon color */
+    --color-primary: var(--primary);
+    /* #FF6B35 */
+}

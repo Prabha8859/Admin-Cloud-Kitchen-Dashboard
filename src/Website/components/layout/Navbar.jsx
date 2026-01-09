@@ -120,7 +120,7 @@ const Navbar = () => {
             aria-label="Go to homepage"
           >
             <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center shadow-sm">
-              <span className="text-white font-bold text-lg">PK</span>
+              <span className="text-gray-900 font-bold text-lg">PK</span>
             </div>
             <div className="flex flex-col items-start">
               <span className="text-xl font-bold text-gray-900 leading-tight">
@@ -144,7 +144,7 @@ const Navbar = () => {
                   aria-expanded={showDropdown}
                 >
                   <div className="w-9 h-9 rounded-full bg-gradient-to-br from-primary-light to-primary flex items-center justify-center shadow-sm">
-                    <User className="w-5 h-5 text-white" />
+                    <User className="w-5 h-5 text-gray-900" />
                   </div>
                   <div className="hidden sm:block text-left">
                     <p className="text-sm font-medium text-gray-900 truncate max-w-[120px]">
