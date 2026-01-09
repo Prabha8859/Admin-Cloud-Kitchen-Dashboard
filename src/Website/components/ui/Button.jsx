@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 const Button = ({
   children,
-  variant = "primary",   // primary | secondary | outline | success | danger | ghost
-  size = "md",           // sm | md | lg
+  variant = "primary",   
+  size = "md",         
   loading = false,
   disabled = false,
   to,

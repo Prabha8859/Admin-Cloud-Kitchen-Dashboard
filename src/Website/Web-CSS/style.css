@@ -1,0 +1,232 @@
+
+
+:root {
+    /* Primary Kitchen Colors (Orange) */
+    --primary: #FF6B35;
+    --primary-dark: #E55A2E;
+    --primary-light: #FFF5F2;
+    /* Very light orange tint for backgrounds */
+    --primary-gradient-end: #FF8B4A;
+    /* For orange gradients */
+    /* Secondary/Cloud Colors (Blue) */
+    --secondary: #2E86AB;
+    --secondary-dark: #257095;
+    --secondary-gradient-end: #3A9BC8;
+    /* For blue gradients */
+    /* Neutral Colors */
+    --dark: #2D3436;
+    /* Deep gray - for text on light bg */
+    --gray: #636E72;
+    /* Medium gray - secondary text */
+    --light-gray: #DFE6E9;
+    /* Borders, dividers */
+    --bg: #F8F9FA;
+    /* Main page background */
+    --white: #FFFFFF;
+    /* Pure white - cards, inputs */
+    /* Text Colors - NEW PROPER SYSTEM */
+    --text-primary: var(--primary);
+    /* Orange text */
+    --text-dark: #1F1F1F;
+    /* Almost black - best for body text on light bg */
+    --text-gray: #4B4B4B;
+    /* Dark gray - headings, labels */
+    --text-muted: #9CA3AF;
+    /* Placeholder, subtle text */
+    --text-on-dark: #FFFFFF;
+    /* Pure white text for dark/colored backgrounds */
+    --text-on-primary: #FFFFFF;
+    /* Text on primary color bg */
+    --text-on-secondary: #FFFFFF;
+    /* Text on secondary bg */
+    /* Accent Colors */
+    --success: #00B894;
+    --warning: #FDCB6E;
+    --danger: #E17055;
+    --info: #74B9FF;
+    /* Category Colors */
+    --cat-breakfast-bg: #FFEAA7;
+    --cat-breakfast-text: #E17055;
+    --cat-lunch-bg: #A29BFE;
+    --cat-dinner-bg: #FD79A8;
+    --cat-dessert-bg: #FF9AA2;
+    --cat-text-dark: var(--dark);
+    /* For good contrast on pastel bgs */
+}
+
+
+/* 🍳 BUTTONS */
+
+.btn-primary {
+    background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+    color: var(--text-on-primary);
+    border: none;
+    border-radius: 0.75rem;
+    padding: 0.7rem 1.6rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-secondary {
+    background: var(--secondary);
+    color: var(--text-on-secondary);
+    border: none;
+    border-radius: 0.75rem;
+    padding: 0.7rem 1.6rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    border-radius: 0.75rem;
+    padding: 0.7rem 1.6rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+
+/* 📝 TEXT COLORS */
+
+.text-primary {
+    color: var(--text-primary);
+}
+
+.text-secondary {
+    color: var(--secondary-dark);
+}
+
+.text-dark {
+    color: var(--text-dark);
+}
+
+.text-gray {
+    color: var(--text-gray);
+}
+
+.text-muted {
+    color: var(--text-muted);
+}
+
+.text-white {
+    color: var(--text-on-dark);
+    /* Safe white for any dark background */
+}
+
+
+/* 🏠 BACKGROUNDS */
+
+.bg-primary {
+    background: var(--primary);
+    color: var(--text-on-primary);
+}
+
+.bg-secondary {
+    background: var(--secondary);
+    color: var(--text-on-secondary);
+}
+
+.bg-light {
+    background: var(--bg);
+}
+
+.bg-white {
+    background: var(--white);
+}
+
+
+/* 🌈 GRADIENTS */
+
+.gradient-orange {
+    background: linear-gradient(90deg, var(--primary), var(--primary-gradient-end));
+    color: var(--text-on-dark);
+}
+
+.gradient-blue {
+    background: linear-gradient(90deg, var(--secondary), var(--secondary-gradient-end));
+    color: var(--text-on-dark);
+}
+
+.gradient-kitchen {
+    background: linear-gradient(135deg, var(--primary), var(--primary-gradient-end), var(--secondary));
+    color: var(--text-on-dark);
+}
+
+
+/* 🍽️ KITCHEN CATEGORIES */
+
+.category-breakfast {
+    background: var(--cat-breakfast-bg);
+    color: var(--cat-breakfast-text);
+}
+
+.category-lunch {
+    background: var(--cat-lunch-bg);
+    color: var(--cat-text-dark);
+}
+
+.category-dinner {
+    background: var(--cat-dinner-bg);
+    color: var(--cat-text-dark);
+}
+
+.category-dessert {
+    background: var(--cat-dessert-bg);
+    color: var(--cat-text-dark);
+}
+
+
+/* 📊 DIFFICULTY LEVELS */
+
+.level-easy {
+    color: var(--success);
+}
+
+.level-medium {
+    color: var(--warning);
+}
+
+.level-hard {
+    color: var(--danger);
+}
+
+
+/* 📝 INPUT FIELDS */
+
+.input-kitchen {
+    padding: 0.7rem 1rem;
+    border-radius: 0.7rem;
+    background: var(--white);
+    border: 1.5px solid var(--light-gray);
+    color: var(--text-dark);
+    outline: none;
+    width: 100%;
+}
+
+.input-kitchen:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.15);
+}
+
+.input-kitchen::placeholder {
+    color: var(--text-muted);
+}
+
+
+/* STATES */
+
+.input-error {
+    border-color: var(--danger);
+    background: rgba(225, 112, 85, 0.05);
+}
+
+.input-success {
+    border-color: var(--success);
+}
+
+.to-primary-dark{
+    --tw-gradient-to: #07382d var(--tw-gradient-to-position);
+}

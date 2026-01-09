@@ -7,6 +7,7 @@ import Menu from "../pages/Menu";
 import Orders from "../pages/Orders";
 import Payments from "../pages/Payments";
 import Users from "../pages/Users";
+import './style.css'
 
 export default function AdminRoutes() {
   return (

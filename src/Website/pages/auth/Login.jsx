@@ -115,7 +115,7 @@ function Login() {
   return (
     <>
       {/* Main Login Page */}
-      <div className="min-h-screen bg-gradient-to-br from-rose-50 to-orange-50 flex items-center justify-center p-4">
+      <div className="min-h-screen bg-gradient-to-br from-rose-50 to-orange-50 flex items-center justify-center">
         <div className="bg-white rounded-2xl shadow-lg w-full max-w-md p-6">
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold text-gray-900 mb-2">Welcome Back</h1>
