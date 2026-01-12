@@ -193,7 +193,7 @@ const SignupPage = () => {
   /* ================= STEP 2 : OTP ================= */
   return (
     <OtpVerification
-      next={() => navigate("/")}
+      next={() => navigate("/register-kitchen")}
       emailOrPhone={formData.email}
       fullName={formData.fullName}
     />

@@ -100,7 +100,7 @@ const StepThree = ({ next, back, update, currentStep }) => {
         </section>
 
         {/* SUBMIT / BACK */}
-        <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-light-gray px-10 py-4 flex justify-between z-50">
+        <div className="fixed bottom-0 left-0 right-0  px-10 py-4 flex justify-between z-50">
           <Button type="button" variant="secondary" onClick={back}>
             Back
           </Button>

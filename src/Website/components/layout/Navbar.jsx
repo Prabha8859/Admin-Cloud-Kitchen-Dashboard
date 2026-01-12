@@ -3,13 +3,13 @@ import { useNavigate } from "react-router-dom";
 import Button from "../ui/Button";
 import { User, ChevronDown, LogOut } from "lucide-react";
 
-// Constants for localStorage keys
 const AUTH_TOKEN_KEY = "authToken";
 const USER_DATA_KEY = "user";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const dropdownRef = useRef(null);
+
   const [authState, setAuthState] = useState(() => {
     const token = localStorage.getItem(AUTH_TOKEN_KEY);
     const userData = localStorage.getItem(USER_DATA_KEY);
@@ -17,20 +17,16 @@ const Navbar = () => {
     if (token && userData) {
       try {
         return { loggedIn: true, user: JSON.parse(userData) };
-      } catch (error) {
-        console.error("Error parsing user data:", error);
+      } catch {
         return { loggedIn: false, user: { name: "", email: "" } };
       }
     }
     return { loggedIn: false, user: { name: "", email: "" } };
   });
-  const [showDropdown, setShowDropdown] = useState(false);
 
+  const [showDropdown, setShowDropdown] = useState(false);
   const { loggedIn, user } = authState;
 
-
-
-  // Check and update login status
   const checkLogin = useCallback(() => {
     const token = localStorage.getItem(AUTH_TOKEN_KEY);
     const userData = localStorage.getItem(USER_DATA_KEY);
@@ -46,59 +42,49 @@ const Navbar = () => {
     }
   }, []);
 
-  // Handle logout
   const handleLogout = useCallback(() => {
     localStorage.removeItem(AUTH_TOKEN_KEY);
     localStorage.removeItem(USER_DATA_KEY);
     setAuthState({ loggedIn: false, user: { name: "", email: "" } });
     setShowDropdown(false);
-    
-    // Dispatch event for other tabs
     window.dispatchEvent(new Event("authChange"));
     navigate("/", { replace: true });
   }, [navigate]);
 
-  // Handle profile click
   const handleProfileClick = () => {
     if (loggedIn) {
-      setShowDropdown(prev => !prev);
+      setShowDropdown((prev) => !prev);
     } else {
       navigate("/login");
     }
   };
 
-  // Handle outside click to close dropdown
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+    const handleOutsideClick = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
         setShowDropdown(false);
       }
     };
 
     if (showDropdown) {
-      document.addEventListener("mousedown", handleClickOutside);
-      document.addEventListener("touchstart", handleClickOutside);
+      document.addEventListener("mousedown", handleOutsideClick);
+      document.addEventListener("touchstart", handleOutsideClick);
     }
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("touchstart", handleClickOutside);
+      document.removeEventListener("mousedown", handleOutsideClick);
+      document.removeEventListener("touchstart", handleOutsideClick);
     };
   }, [showDropdown]);
 
-  // Listen for auth changes
   useEffect(() => {
-    // Handle storage events (other tabs)
-    const handleStorageChange = (event) => {
-      if ([AUTH_TOKEN_KEY, USER_DATA_KEY].includes(event.key)) {
+    const handleStorageChange = (e) => {
+      if ([AUTH_TOKEN_KEY, USER_DATA_KEY].includes(e.key)) {
         checkLogin();
       }
     };
 
-    // Handle custom auth events (same tab)
-    const handleAuthChange = () => {
-      checkLogin();
-    };
+    const handleAuthChange = () => checkLogin();
 
     window.addEventListener("storage", handleStorageChange);
     window.addEventListener("authChange", handleAuthChange);
@@ -110,62 +96,63 @@ const Navbar = () => {
   }, [checkLogin]);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 border-b border-gray-200 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-        <div className="flex items-center justify-between">
+    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/70">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="h-16 flex items-center justify-between">
+
           {/* Logo */}
           <button
             onClick={() => navigate("/")}
-            className="flex items-center gap-3 hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-primary/20 rounded-lg p-1"
-            aria-label="Go to homepage"
+            className="flex items-center gap-3 group focus:outline-none"
           >
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center shadow-sm">
-              <span className="text-gray-900 font-bold text-lg">PK</span>
+            <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center shadow-md transition-transform group-hover:scale-[1.03]">
+              <span className="text-white font-bold text-lg">PK</span>
             </div>
-            <div className="flex flex-col items-start">
-              <span className="text-xl font-bold text-gray-900 leading-tight">
+
+            <div className="hidden sm:block leading-tight">
+              <p className="text-lg font-semibold text-gray-900">
                 Padoshi Kitchen
-              </span>
-              <span className="text-xs text-gray-500 font-normal">
+              </p>
+              <p className="text-xs text-gray-500">
                 Home-cooked happiness
-              </span>
+              </p>
             </div>
           </button>
 
-          {/* Right Side - Auth Section */}
+          {/* Right Section */}
           <div className="relative" ref={dropdownRef}>
             {loggedIn ? (
               <>
                 {/* Profile Button */}
                 <button
                   onClick={handleProfileClick}
-                  className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-50 active:bg-gray-100 transition-colors border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20"
-                  aria-label="User menu"
-                  aria-expanded={showDropdown}
+                  className="flex items-center gap-3 px-3 py-2 rounded-xl border border-gray-200 bg-white hover:bg-gray-50 transition shadow-sm focus:outline-none"
                 >
-                  <div className="w-9 h-9 rounded-full bg-gradient-to-br from-primary-light to-primary flex items-center justify-center shadow-sm">
-                    <User className="w-5 h-5 text-gray-900" />
+                  <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center">
+                    <User className="w-5 h-5 text-primary" />
                   </div>
+
                   <div className="hidden sm:block text-left">
-                    <p className="text-sm font-medium text-gray-900 truncate max-w-[120px]">
+                    <p className="text-sm font-semibold text-gray-900 truncate max-w-[120px]">
                       {user.name.split(" ")[0]}
                     </p>
                     <p className="text-xs text-gray-500 truncate max-w-[120px]">
                       {user.email}
                     </p>
                   </div>
+
                   <ChevronDown
-                    className={`w-4 h-4 text-gray-500 transition-transform duration-200 ${
+                    className={`w-4 h-4 text-gray-400 transition-transform ${
                       showDropdown ? "rotate-180" : ""
                     }`}
                   />
                 </button>
 
-                {/* Dropdown Menu */}
+                {/* Dropdown */}
                 {showDropdown && (
-                  <div className="absolute right-0 mt-2 w-64 bg-white rounded-xl shadow-lg border border-gray-100 z-50 overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
-                    {/* User Info */}
-                    <div className="px-4 py-3 bg-gradient-to-r from-gray-50 to-gray-50/50 border-b">
+                  <div className="absolute right-0 mt-3 w-64 rounded-2xl bg-white shadow-xl border border-gray-100 overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
+                    
+                    <div className="px-4 py-4 bg-gray-50 border-b">
                       <p className="font-semibold text-gray-900 truncate">
                         {user.name}
                       </p>
@@ -174,35 +161,10 @@ const Navbar = () => {
                       </p>
                     </div>
 
-                    {/* Menu Items */}
-                    <div className="p-2 space-y-1">
-                      <button
-                        onClick={() => {
-                          navigate("/profile");
-                          setShowDropdown(false);
-                        }}
-                        className="w-full px-3 py-2 text-left rounded-lg hover:bg-gray-50 text-gray-700 transition-colors text-sm font-medium flex items-center gap-2"
-                      >
-                        <User className="w-4 h-4" />
-                        My Profile
-                      </button>
-                      <button
-                        onClick={() => {
-                          navigate("/orders");
-                          setShowDropdown(false);
-                        }}
-                        className="w-full px-3 py-2 text-left rounded-lg hover:bg-gray-50 text-gray-700 transition-colors text-sm font-medium flex items-center gap-2"
-                      >
-                        <User className="w-4 h-4" />
-                        My Orders
-                      </button>
-                    </div>
-
-                    {/* Logout Button */}
-                    <div className="p-2 border-t">
+                    <div className="p-2">
                       <button
                         onClick={handleLogout}
-                        className="w-full px-3 py-2 text-left rounded-lg hover:bg-red-50 text-red-600 transition-colors text-sm font-medium flex items-center gap-2 border border-red-100"
+                        className="w-full flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-medium text-red-600 hover:bg-red-50 transition"
                       >
                         <LogOut className="w-4 h-4" />
                         Logout
@@ -216,12 +178,13 @@ const Navbar = () => {
                 variant="primary"
                 size="md"
                 onClick={() => navigate("/login")}
-                className="shadow-sm hover:shadow transition-shadow"
+                className="shadow-md hover:shadow-lg transition"
               >
                 Login / Register
               </Button>
             )}
           </div>
+
         </div>
       </div>
     </header>

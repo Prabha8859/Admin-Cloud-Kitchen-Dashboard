@@ -195,7 +195,7 @@ const StepOne = ({ next, update, currentStep }) => {
         </section>
 
         {/* ACTION BAR */}
-        <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-light-gray px-10 py-4 flex justify-end z-50">
+        <div className="fixed bottom-0 left-0 right-0   px-10 py-4 flex justify-end z-50">
           <button type="submit" className="btn-primary px-12">
             Save & Continue
           </button>

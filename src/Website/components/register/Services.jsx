@@ -6,28 +6,27 @@ const Services = ({ next, update }) => {
   };
 
   return (
-    <section className="min-h-[80vh] flex items-center justify-center bg-[#fffaf7] relative overflow-hidden">
+    <section className="min-h-[65vh] flex items-center justify-center bg-[#fffaf7] relative overflow-hidden">
       
-      {/* subtle pattern – toned down */}
+      {/* subtle background pattern */}
       <div
-        className="absolute inset-0 opacity-[0.025]"
+        className="absolute inset-0 opacity-[0.02]"
         style={{
           backgroundImage:
             "radial-gradient(#ea580c 1px, transparent 1px)",
-          backgroundSize: "28px 28px",
+          backgroundSize: "30px 30px",
         }}
       />
 
-      <div className="relative max-w-3xl w-full mx-4 bg-white rounded-[28px] shadow-[0_40px_120px_rgba(0,0,0,0.12)] px-12 py-14">
+      <div className="relative max-w-3xl w-full mx-4 bg-white rounded-[26px] shadow-[0_30px_90px_rgba(0,0,0,0.12)] px-10 py-10">
         
         {/* HEADER */}
-        <div className="mb-12">
-          <h2 className="text-[32px] font-semibold text-gray-900 leading-tight">
+        <div className="mb-8">
+          <h2 className="text-[30px] font-semibold text-gray-900">
             Choose your kitchen type
           </h2>
-          <p className="text-gray-600 mt-3 max-w-2xl text-base">
-            Tell us how you operate your kitchen so we can set up the right
-            services and onboarding for you.
+          <p className="text-gray-600 mt-2 text-base">
+            Select how you operate your kitchen to personalize your setup.
           </p>
         </div>
 
@@ -37,14 +36,14 @@ const Services = ({ next, update }) => {
           className="group relative cursor-pointer rounded-2xl
                      border border-orange-200/60
                      bg-gradient-to-br from-orange-50/70 to-white
-                     hover:shadow-[0_24px_60px_rgba(234,88,12,0.18)]
+                     hover:shadow-[0_20px_50px_rgba(234,88,12,0.18)]
                      hover:-translate-y-[2px]
-                     transition-all duration-300 p-10"
+                     transition-all duration-300 p-8"
         >
           {/* left accent */}
           <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-orange-500 rounded-l-2xl" />
 
-          <div className="flex items-start justify-between gap-10">
+          <div className="flex items-start justify-between gap-8">
             
             {/* LEFT CONTENT */}
             <div>
@@ -52,13 +51,12 @@ const Services = ({ next, update }) => {
                 Cloud Kitchen
               </h3>
 
-              <p className="text-gray-600 mt-3 max-w-lg leading-relaxed">
-                Run a delivery-only kitchen and reach customers across your city
-                without the cost of a dine-in setup.
+              <p className="text-gray-600 mt-2 max-w-lg leading-relaxed">
+                A delivery-only kitchen model with lower costs and faster growth.
               </p>
 
               {/* FEATURES */}
-              <div className="grid grid-cols-2 gap-x-8 gap-y-4 mt-8 text-sm text-gray-700">
+              <div className="grid grid-cols-2 gap-x-6 gap-y-3 mt-6 text-sm text-gray-700">
                 {[
                   "Delivery focused",
                   "Lower setup cost",
@@ -73,9 +71,9 @@ const Services = ({ next, update }) => {
               </div>
 
               {/* CTA */}
-              <div className="mt-10 inline-flex items-center gap-3 text-orange-600 font-semibold text-base">
+              <div className="mt-7 inline-flex items-center gap-2 text-orange-600 font-semibold">
                 Continue setup
-                <span className="text-xl group-hover:translate-x-1 transition-transform">
+                <span className="text-lg group-hover:translate-x-1 transition-transform">
                   →
                 </span>
               </div>
@@ -83,7 +81,7 @@ const Services = ({ next, update }) => {
 
             {/* ICON */}
             <div className="shrink-0">
-              <div className="w-24 h-24 rounded-2xl bg-orange-100 flex items-center justify-center text-4xl shadow-inner">
+              <div className="w-20 h-20 rounded-2xl bg-orange-100 flex items-center justify-center text-3xl shadow-inner">
                 🍳
               </div>
             </div>

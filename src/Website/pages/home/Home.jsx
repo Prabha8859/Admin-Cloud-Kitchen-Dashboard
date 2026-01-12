@@ -8,6 +8,8 @@ import Stats from '../../components/home/Stats'
 import CTA from '../../components/home/FinalCTA'
 import FinalCTA from '../../components/home/FinalCTA'
 import Testimonials from '../../components/home/Testimonials'
+import AppDownload from '../../components/home/AppDownload'
+import FeatureSection from '../../components/home/FeatureSection '
 
 
 const Home = () => {
@@ -15,8 +17,12 @@ const Home = () => {
     <div>
       <Hero />
       <Onboarding />
+      <FeatureSection />
       <Benefits />
        <HowItWorks />
+       <AppDownload />
+       {/* <Stats /> */}
+       {/* <CTA /> */}
        <Testimonials />
          {/* <FinalCTA /> */}
 

@@ -28,7 +28,7 @@ const Onboarding = () => {
         }
 
         .animate-float {
-          animation: float 5s ease-in-out infinite;
+          animation: float 8s ease-in-out infinite;
         }
       `}</style>
 
@@ -44,10 +44,6 @@ const Onboarding = () => {
                 </h3>
                 <div className="h-1 bg-gradient-to-r from-transparent via-[var(--primary)] to-transparent max-w-32 mx-auto rounded-full opacity-70"></div>
               </div>
-
-              <p className="text-center text-text-muted text-xs mb-4 max-w-md mx-auto">
-                Sab ready kar lo — onboarding super fast hai!
-              </p>
 
               <div className="grid md:grid-cols-2 gap-5 items-center">
                 {/* Checklist */}
